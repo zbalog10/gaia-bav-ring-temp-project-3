@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gaia-bav-ring-temp"
+version = "0.1.0"
+description = "Model Gaia basic angle LOS variations from adapter ring temperatures."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Zoltán Balog" }
+]
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "matplotlib>=3.8",
+  "scikit-learn>=1.4",
+  "joblib>=1.4",
+]
+
+[project.optional-dependencies]
+analysis = [
+  "shap>=0.45",
+  "seaborn>=0.13",
+]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.5",
+  "black>=24.0",
+  "mypy>=1.10",
+]
+
+[project.scripts]
+gaia-bav-run = "gaia_bav_ring_temp.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

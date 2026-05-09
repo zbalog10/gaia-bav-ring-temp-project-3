@@ -1,0 +1,47 @@
+[experiment]
+name = "fov1_zoom"
+ring_temp_csv = "data/raw/ring_temp.csv"
+los_csv = "data/raw/sfunc7000_fov1_detrended_newtime.csv"
+output_dir = "outputs/fov1_zoom"
+ring_obmt_col = "OBMT_rev"
+los_obmt_col = "obmtRev"
+target_col = "DN_LINE_OF_SIGHT_VARIATIONS"
+trend_col = "trend"
+target_scale = 2.0626480624709636e8
+obmt_min = 16490.09
+obmt_max = 16571.17
+save_enriched_dataset = true
+save_model = true
+make_plots = true
+compute_shap = true
+
+[sensors]
+columns = ["NEI00054", "NEI00230", "NEI00321"]
+
+[random_forest]
+n_estimators = 100
+model_random_state = 42
+split_random_state = 101
+test_size = 0.3
+n_jobs = -1
+
+[time_blocked]
+test_size = 0.3
+gap_size = 0
+
+[models]
+enabled = ["random_forest", "linear", "ridge", "mlp"]
+
+[ridge]
+alpha = 1.0
+
+[mlp]
+hidden_layer_sizes = [32, 16, 8]
+activation = "relu"
+alpha = 0.0001
+learning_rate_init = 0.001
+max_iter = 2000
+early_stopping = true
+validation_fraction = 0.1
+n_iter_no_change = 20
+random_state = 42
