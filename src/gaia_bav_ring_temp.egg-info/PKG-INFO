@@ -38,59 +38,7 @@ Gaia basic-angle LOS variation from adapter ring temperatures.
 - side-by-side random-split and time-blocked validation runs
 - a better starting point for deeper scientific analysis and paper writing
 
-## Suggested directory layout
 
-```text
-gaia_bav_ring_temp_project/
-├── configs/
-├── data/
-│   ├── raw/
-│   └── processed/
-├── docs/
-├── legacy/
-├── outputs/
-├── src/gaia_bav_ring_temp/
-└── tests/
-```
-
-## Quick start in PyCharm
-
-1. Open `gaia_bav_ring_temp_project` in PyCharm.
-2. Create a new virtual environment with Python 3.11+.
-3. Install the project in editable mode:
-
-```bash
-pip install -e .
-```
-
-Optional analysis extras:
-
-```bash
-pip install -e ".[analysis]"
-```
-
-Optional developer tools:
-
-```bash
-pip install -e ".[dev]"
-```
-
-4. Copy your CSV files into `data/raw/`:
-   - `ring_temp.csv`
-   - `sfunc7000_fov1_detrended_newtime.csv`
-   - `sfunc7000_fov2_detrended_newtime.csv`
-
-5. Run one experiment:
-
-```bash
-gaia-bav-run --config configs/fov1_full.toml
-```
-
-Or:
-
-```bash
-python -m gaia_bav_ring_temp.cli --config configs/fov2_zoom.toml
-```
 
 ## What gets saved
 

@@ -16,6 +16,16 @@ compute_shap = true
 [sensors]
 columns = ["NEI00054", "NEI00230", "NEI00321"]
 
+[temperature_detrend]
+enabled = true
+method = "hybrid_rolling"
+keep_raw_columns = true
+preserve_mean = true
+switch_obmt = 16515.5
+fft_initial_window = 50
+anchor_obmt = 16545.0
+forced_window_size = []
+
 [random_forest]
 n_estimators = 100
 model_random_state = 42

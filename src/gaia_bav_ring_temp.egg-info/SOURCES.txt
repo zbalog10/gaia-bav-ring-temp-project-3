@@ -11,6 +11,7 @@ src/gaia_bav_ring_temp/io.py
 src/gaia_bav_ring_temp/modeling.py
 src/gaia_bav_ring_temp/pipeline.py
 src/gaia_bav_ring_temp/plotting.py
+src/gaia_bav_ring_temp/preprocessing.py
 src/gaia_bav_ring_temp/settings.py
 src/gaia_bav_ring_temp/validation.py
 src/gaia_bav_ring_temp.egg-info/PKG-INFO
@@ -19,6 +20,11 @@ src/gaia_bav_ring_temp.egg-info/dependency_links.txt
 src/gaia_bav_ring_temp.egg-info/entry_points.txt
 src/gaia_bav_ring_temp.egg-info/requires.txt
 src/gaia_bav_ring_temp.egg-info/top_level.txt
+src/gaia_bav_ring_temp/scripts/__init__.py
+src/gaia_bav_ring_temp/scripts/compare_raw_vs_pca.py
+src/gaia_bav_ring_temp/scripts/inspect_temperature_detrending.py
+src/gaia_bav_ring_temp/scripts/plot_pca_vs_raw.py
 tests/test_correlation.py
 tests/test_features.py
+tests/test_preprocessing.py
 tests/test_validation.py

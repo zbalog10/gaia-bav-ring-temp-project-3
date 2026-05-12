@@ -30,6 +30,12 @@ class TemperatureDetrendConfig:
     keep_raw_columns: bool = True
     preserve_mean: bool = True
 
+    # Parameters for notebook-style hybrid rolling detrending
+    switch_obmt: float | None = None
+    fft_initial_window: int = 50
+    anchor_obmt: float | None = None
+    forced_window_size: int | None = None
+
 @dataclass(slots=True)
 class ModelsConfig:
     enabled: list[str] = field(
@@ -141,6 +147,10 @@ def load_config(path: str | Path) -> ExperimentConfig:
         method=detrend_raw.get("method", "linear"),
         keep_raw_columns=detrend_raw.get("keep_raw_columns", True),
         preserve_mean=detrend_raw.get("preserve_mean", True),
+        switch_obmt=detrend_raw.get("switch_obmt"),
+        fft_initial_window=detrend_raw.get("fft_initial_window", 50),
+        anchor_obmt=detrend_raw.get("anchor_obmt"),
+        forced_window_size=detrend_raw.get("forced_window_size"),
     )
 
     exp_raw = raw["experiment"]

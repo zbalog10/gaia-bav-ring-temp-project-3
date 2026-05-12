@@ -95,10 +95,10 @@ def run_experiment(config: ExperimentConfig) -> dict[str, object]:
     out_dir = ensure_dir(config.output_dir)
     global_plots_dir = ensure_dir(out_dir / "plots_global")
 
-    enriched = prepare_dataset(
-        ring_temp_csv=str(config.ring_temp_csv),
-        los_csv=str(config.los_csv),
-        sensors=list(config.sensors),
+    enriched, detrend_summary = prepare_dataset(
+        ring_temp_csv=config.ring_temp_csv,
+        los_csv=config.los_csv,
+        sensors=config.sensors,
         ring_obmt_col=config.ring_obmt_col,
         los_obmt_col=config.los_obmt_col,
         target_col=config.target_col,
@@ -110,6 +110,13 @@ def run_experiment(config: ExperimentConfig) -> dict[str, object]:
 
     if config.save_enriched_dataset:
         save_dataframe(enriched, out_dir / "enriched_dataset.csv")
+
+    if config.temperature_detrend.enabled and not detrend_summary.empty:
+        save_dataframe(
+            detrend_summary,
+            out_dir / "temperature_detrend_summary.csv",
+            index=False,
+        )
 
     model_df = select_model_columns(enriched, sensors=config.sensors, target_col="y_mas")
     feature_cols = [f"{sensor}_avg" for sensor in config.sensors]
