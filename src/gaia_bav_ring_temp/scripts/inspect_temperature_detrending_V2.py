@@ -197,7 +197,7 @@ def main() -> None:
         enabled=True,
         method=args.method,
         keep_raw_columns=True,
-        preserve_mean=True,
+        preserve_mean=False,
         switch_obmt=args.switch_obmt,
         fft_initial_window=args.fft_initial_window,
         anchor_obmt=args.anchor_obmt,

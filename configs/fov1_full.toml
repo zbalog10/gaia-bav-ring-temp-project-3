@@ -2,7 +2,7 @@
 name = "fov1_full"
 ring_temp_csv = "data/raw/ring_temp.csv"
 los_csv = "data/raw/sfunc7000_fov1_detrended_newtime.csv"
-output_dir = "outputs/fov1_full"
+output_dir = "outputs/fov1_full_nomean"
 ring_obmt_col = "OBMT_rev"
 los_obmt_col = "obmtRev"
 target_col = "DN_LINE_OF_SIGHT_VARIATIONS"
@@ -20,11 +20,11 @@ columns = ["NEI00054", "NEI00230", "NEI00321"]
 enabled = true
 method = "hybrid_rolling"
 keep_raw_columns = true
-preserve_mean = true
+preserve_mean = false
 switch_obmt = 16515.5
 fft_initial_window = 50
 anchor_obmt = 16545.0
-forced_window_size = []
+#forced_window_size = []
 
 [random_forest]
 n_estimators = 100
